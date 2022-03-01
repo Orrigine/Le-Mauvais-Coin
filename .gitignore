@@ -1,8 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/lmc/node_modules
-/merch-project/node_modules
+/lmc/node_modules/
+/strapi/node_modules/
 /.pnp
 .pnp.js
 
