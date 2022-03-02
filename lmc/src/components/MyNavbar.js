@@ -46,7 +46,7 @@ function MyNavbar(props){
                     onOpenStart: null,
                     outDuration: 250
                 }}
-    trigger={<Link to="/">Dropdown{' '}<Icon rightarrow_drop_down></Icon></Link>}
+    trigger={<Link to="/">Account{' '}<Icon rightarrow_drop_down></Icon></Link>}
   >
     <Link to="/"><Icon DropdownHey></Icon></Link>
 

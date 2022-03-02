@@ -2,6 +2,9 @@ import React, {
     Component
 } from 'react';
 import 'materialize-css';
+import MyNavbar from '../components/MyNavbar'
+import 'materialize-css/dist/css/materialize.min.css'
+
 
 class Browse extends Component {
 
@@ -26,7 +29,17 @@ class Browse extends Component {
         });
     }
     render() {
-        return <ul > {this.state.articles.data && this.state.articles.data.map((article, i) => <li> {article.attributes.name} </li>)} </ul>;
+        
+        return (
+            <>
+            <MyNavbar />
+            <ul>
+                {this.state.articles.data && this.state.articles.data.map((article, i) => 
+                <li> {article.attributes.name} </li>
+                )} 
+            </ul>
+            </>
+        );
     }
 }
 export default Browse;
