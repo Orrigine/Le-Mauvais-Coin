@@ -29,10 +29,11 @@
     "reference": {
       "type": "integer",
       "required": true,
-      "unique": true
+      "unique": true,
+      "default": 1
     },
     "price": {
-      "type": "decimal",
+      "type": "integer",
       "required": true
     },
     "description": {

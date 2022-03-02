@@ -8,8 +8,11 @@ import Accueil from '../pages/Accueil';
 import Account from '../pages/Account';
 import Browse from '../pages/Browse';
 import Cart from '../pages/Cart';
+import 'materialize-css';
+import { Button, Card, Row, Col } from 'react-materialize';
 
 function App() {
+    
   return (
     <Router>
       <Routes>
@@ -21,5 +24,7 @@ function App() {
     </Router>
   );
 }
+
+
 
 export default App;
