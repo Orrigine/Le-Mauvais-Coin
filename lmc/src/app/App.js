@@ -27,11 +27,11 @@ class App extends Component {
         }
     }
 
-    addArticleToCart = (props) => {
-        this.SetState({
+    addArticleToCart = (article) => {
+        this.setState({
             cart: [
-                ...this.state.article,
-                props.article
+                ...this.state.cart,
+                article
             ]
         })
     }
@@ -43,7 +43,7 @@ class App extends Component {
       <Routes>
         <Route exact path='/' element={<Home mettre toute injection articles paniers etc />} />
         <Route exact path='/account' element={<Account />} />
-        <Route exact path='/browse' element={<Browse />} />
+        <Route exact path='/browse' element={<Browse addArticleToCart={this.addArticleToCart} />} />
         <Route exact path='/cart' element={<Cart />} />
       </Routes>
     </Router>
