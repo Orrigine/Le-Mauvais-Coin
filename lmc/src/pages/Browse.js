@@ -1,9 +1,7 @@
 import React, {
     Component
 } from 'react';
-import {
-    Link
-} from 'react-router-dom';
+import 'materialize-css';
 
 class Browse extends Component {
 
@@ -15,7 +13,7 @@ class Browse extends Component {
     }
 
     async componentDidMount() {
-        const response = await fetch('http://localhost:1337/api/articles', {
+        const response = await fetch('http://localhost:1337/api/articles?populate=*', {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -28,12 +26,7 @@ class Browse extends Component {
         });
     }
     render() {
-        return <ul>
-                {this.state.articles.data && this.state.articles.data.map((article,i)=><li>{article.attributes.name}</li>)}
-            </ul>
-
-        ;
+        return <ul > {this.state.articles.data && this.state.articles.data.map((article, i) => <li> {article.attributes.name} </li>)} </ul>;
     }
 }
-
 export default Browse;
