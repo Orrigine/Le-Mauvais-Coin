@@ -8,10 +8,11 @@ import React, {
     Component
 } from 'react';
 
-import Accueil from '../pages/Accueil';
+import Home from '../pages/Home';
 import Account from '../pages/Account';
 import Browse from '../pages/Browse';
 import Cart from '../pages/Cart';
+import Menu from '../components/Menu';
 import 'materialize-css';
 
 import { Button, Card, Row, Col } from 'react-materialize';
@@ -29,7 +30,8 @@ class App extends Component {
     addArticleToCart = (props) => {
         this.SetState({
             cart: [
-                ...this.state.article, props.article
+                ...this.state.article,
+                props.article
             ]
         })
     }
@@ -39,7 +41,7 @@ class App extends Component {
         return (
             <Router>
       <Routes>
-        <Route exact path='/' element={<Accueil mettre toute injection articles paniers etc />} />
+        <Route exact path='/' element={<Home mettre toute injection articles paniers etc />} />
         <Route exact path='/account' element={<Account />} />
         <Route exact path='/browse' element={<Browse />} />
         <Route exact path='/cart' element={<Cart />} />
