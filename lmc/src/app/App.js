@@ -5,14 +5,18 @@ import {
   Routes
 } from 'react-router-dom'
 import Accueil from '../pages/Accueil';
-import Page2 from '../pages/Page2';
+import Account from '../pages/Account';
+import Browse from '../pages/Browse';
+import Cart from '../pages/Cart';
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route exact path='/' element={<Accueil />} />
-        <Route exact path='/page2' element={<Page2 />} />
+        <Route exact path='/account' element={<Account />} />
+        <Route exact path='/browse' element={<Browse />} />
+        <Route exact path='/cart' element={<Cart />} />
       </Routes>
     </Router>
   );
