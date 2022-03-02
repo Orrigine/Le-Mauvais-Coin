@@ -1,7 +1,9 @@
 import React, {
     Component
 } from 'react';
+import { Row, Col } from "react-materialize";
 import 'materialize-css';
+import Article from "../components/Article";
 
 class Browse extends Component {
 
@@ -26,7 +28,13 @@ class Browse extends Component {
         });
     }
     render() {
-        return <ul > {this.state.articles.data && this.state.articles.data.map((article, i) => <li> {article.attributes.name} </li>)} </ul>;
+        return (
+        <Row>
+          <Col l={3} m={6} s={12}>
+            {this.state.articles.data && this.state.articles.data.map((article, i) => <Article addArticleToCart={this.props.addArticleToCart} data={article} />)};
+        </Col>
+      </Row>
+        );
     }
 }
 export default Browse;
