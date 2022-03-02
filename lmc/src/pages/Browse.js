@@ -1,10 +1,12 @@
 import React, {
     Component
 } from 'react';
+import { Row, Col } from "react-materialize";
 import 'materialize-css';
 import MyNavbar from '../components/MyNavbar'
 import 'materialize-css/dist/css/materialize.min.css'
 
+import Article from "../components/Article";
 
 class Browse extends Component {
 
@@ -29,16 +31,15 @@ class Browse extends Component {
         });
     }
     render() {
-        
         return (
-            <>
+        <>
             <MyNavbar />
-            <ul>
-                {this.state.articles.data && this.state.articles.data.map((article, i) => 
-                <li> {article.attributes.name} </li>
-                )} 
-            </ul>
-            </>
+        <Row>
+          <Col l={3} m={6} s={12}>
+            {this.state.articles.data && this.state.articles.data.map((article, i) => <Article addArticleToCart={this.props.addArticleToCart} data={article} />)};
+        </Col>
+      </Row>
+    </>
         );
     }
 }
