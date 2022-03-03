@@ -32,7 +32,7 @@ class Article extends Component {
                     <Card.Text>
                         {this.props.data.attributes.description}
                     </Card.Text>
-                    {[this.state.inCart ? <Link to="/cart">Ajouté - Voir le panier</Link> : <Button variant="primary" onClick={() => this.addToCart()}>Add to Cart</Button>]}
+                    {[this.state.inCart ? <Link to="/cart"><Button variant="success">Added to Cart - Show Cart</Button></Link> : <Button variant="primary" onClick={() => this.addToCart()}>Add to Cart</Button>]}
                 </Card.Body>
             </Card>
             </>
