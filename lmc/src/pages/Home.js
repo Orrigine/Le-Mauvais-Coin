@@ -15,7 +15,6 @@ class Home extends Component {
             <h1> Bi1venue sur Le Mauvais Coin ! </h1>
             <div>
                 <Link to="/browse"> Nos articles ! </Link>
-                <Link to="/account"> Votre compte </Link>
                 <Link to="/cart"> Panier </Link>
             </div>
             </>
