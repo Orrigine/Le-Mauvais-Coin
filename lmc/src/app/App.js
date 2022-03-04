@@ -9,7 +9,6 @@ import React, {
 } from 'react';
 
 import Home from '../pages/Home';
-import Account from '../pages/Account';
 import Browse from '../pages/Browse';
 import Cart from '../pages/Cart';
 
@@ -37,7 +36,6 @@ class App extends Component {
             <Router>
       <Routes>
         <Route exact path='/' element={<Home mettre toute injection articles paniers etc />} />
-        <Route exact path='/account' element={<Account />} />
         <Route exact path='/browse' element={<Browse addArticleToCart={this.addArticleToCart} />} />
         <Route exact path='/cart' element={<Cart />} />
       </Routes>

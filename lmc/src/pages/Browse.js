@@ -33,7 +33,7 @@ class Browse extends Component {
     render() {
         return (
             <>
-                <SearchNavbar />
+                <SearchNavbar showSearch={true}  />
                 <Row>
                     <Col l={3} m={6} s={12}>
                         {this.state.articles.data && this.state.articles.data.map((article, i) => <Article addArticleToCart={this.props.addArticleToCart} data={article} />)};
