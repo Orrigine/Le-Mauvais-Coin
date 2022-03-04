@@ -1,5 +1,6 @@
 import { Component } from "react";
-import { Button, Card, } from "react-bootstrap";
+import { Button, Card, Col } from "react-bootstrap";
+import "../css/Article.css"
 
 import { Link } from "react-router-dom";
 
@@ -15,18 +16,21 @@ class Article extends Component {
     this.props.addArticleToCart(this.props.article)
   }
   render() {
+    console.log(this.props.data.attributes.Image.data);
     return (
           <>
-          <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="https://bootstrapcss.com/images/sample-1.jpg" />
-            <Card.Body>
-                <Card.Title>{this.props.data.attributes.name}</Card.Title>
-                <Card.Text>
-                    {this.props.data.attributes.description}
-                </Card.Text>
-                {[this.state.inCart ? <Link to="/cart"><Button variant="success">Added to Cart - Show Cart</Button></Link> : <Button variant="primary" onClick={() => this.addToCart()}>Add to Cart</Button>]}
-            </Card.Body>
-          </Card>
+          <Col sm="6" md="4" lg="3" >
+            <Card>
+              <Card.Img style={{height:"15rem"}} variant="top" src={this.props.data.attributes.Image && "http://localhost:1337"+this.props.data.attributes.Image.data.attributes.url} />
+              <Card.Body>
+                  <Card.Title>{this.props.data.attributes.name}</Card.Title>
+                  <Card.Text style={{height:"5rem"}}>
+                      {this.props.data.attributes.description}
+                  </Card.Text>
+                  {[this.state.inCart ? <Link to="/cart"><Button variant="success">Added to Cart - Show Cart</Button></Link> : <Button variant="primary" onClick={() => this.addToCart()}>Add to Cart</Button>]}
+              </Card.Body>
+            </Card>
+          </Col>
           </>
     );
   }
