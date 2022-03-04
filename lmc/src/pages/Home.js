@@ -4,6 +4,7 @@ import React, {
 import SearchNavbar from '../components/MyNavbar'
 
 import {Link} from 'react-router-dom';
+import Footer from '../components/Footer'
 
 
 class Home extends Component {
@@ -18,6 +19,7 @@ class Home extends Component {
                 <Link to="/account"> Votre compte </Link>
                 <Link to="/cart"> Panier </Link>
             </div>
+            <Footer/>
             </>
 
         );

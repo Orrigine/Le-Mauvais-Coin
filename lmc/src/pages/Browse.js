@@ -5,7 +5,7 @@ import React, {
 } from 'react';
 import { Row, Col } from "react-bootstrap";
 import SearchNavbar from '../components/MyNavbar';
-
+import Footer from '../components/Footer'
 import Article from "../components/Article";
 
 class Browse extends Component {
@@ -39,6 +39,7 @@ class Browse extends Component {
                         {this.state.articles.data && this.state.articles.data.map((article, i) => <Article addArticleToCart={this.props.addArticleToCart} data={article} />)};
                     </Col>
                 </Row>
+                <Footer/>            
             </>
         );
     }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SearchNavbar from '../components/MyNavbar';
-
+import Footer from '../components/Footer'
 
 class Cart extends Component {
 
@@ -11,8 +11,11 @@ class Cart extends Component {
             <SearchNavbar/>
             <p>Voici votre panier:
             </p>
+
+
+
+            <Footer/>
         </>
-      
     );
   }
 }
