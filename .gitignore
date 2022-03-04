@@ -3,6 +3,7 @@
 # dependencies
 /lmc/node_modules/
 /strapi/node_modules/
+/strapi/.tmp
 /.pnp
 .pnp.js
 
