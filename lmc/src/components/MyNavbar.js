@@ -13,9 +13,9 @@ class SearchNavbar extends Component {
     render() {
         return (
             <>
-            <Navbar bg="light" expand="lg">
+            <Navbar bg="dark" expand="lg">
                 <Container fluid>
-                    <Navbar.Brand href="/">Le Mauvais Coin</Navbar.Brand>
+                    <Navbar.Brand className="text-light" href="/">Le Mauvais Coin</Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                     {
@@ -39,8 +39,8 @@ class SearchNavbar extends Component {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link href="/browse"> Articles </Nav.Link>
-                        <Nav.Link href="/cart"> Panier </Nav.Link>
+                        <Nav.Link className="text-light" href="/browse"> Articles </Nav.Link>
+                        <Nav.Link className="text-light" href="/cart"> Panier </Nav.Link>
                     </Nav>
                     </Navbar.Collapse>
                 </Container>

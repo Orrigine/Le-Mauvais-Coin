@@ -3,7 +3,7 @@
 import React, {
     Component
 } from 'react';
-import { Row, Col } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 import SearchNavbar from '../components/MyNavbar';
 import Footer from '../components/Footer'
 import Article from "../components/Article";
@@ -35,9 +35,7 @@ class Browse extends Component {
             <>
                 <SearchNavbar showSearch={true}  />
                 <Row>
-                    <Col l={3} m={6} s={12}>
-                        {this.state.articles.data && this.state.articles.data.map((article, i) => <Article addArticleToCart={this.props.addArticleToCart} data={article} />)};
-                    </Col>
+                    {this.state.articles.data && this.state.articles.data.map((article, i) => <Article addArticleToCart={this.props.addArticleToCart} data={article} />)};
                 </Row>
                 <Footer/>            
             </>
