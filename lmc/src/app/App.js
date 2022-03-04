@@ -12,10 +12,6 @@ import Home from '../pages/Home';
 import Account from '../pages/Account';
 import Browse from '../pages/Browse';
 import Cart from '../pages/Cart';
-import Menu from '../components/Menu';
-
-
-import { Button, Card, Row, Col } from 'react-bootstrap';
 
 class App extends Component {
     constructor(props) {

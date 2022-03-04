@@ -2,8 +2,6 @@ import './css/index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-import { Button, Card, Row, Col } from 'react-bootstrap';
 import App from './app/App';
 import reportWebVitals from './app/reportWebVitals';
 
