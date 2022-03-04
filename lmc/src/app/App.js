@@ -1,8 +1,8 @@
 import '../css/App.css';
 import {
-    BrowserRouter as Router,
-    Route,
-    Routes
+  BrowserRouter as Router,
+  Route,
+  Routes
 } from 'react-router-dom'
 import React, {
     Component
@@ -15,12 +15,7 @@ import Cart from '../pages/Cart';
 import Menu from '../components/Menu';
 
 
-import {
-    Button,
-    Card,
-    Row,
-    Col
-} from 'react-bootstrap';
+import { Button, Card, Row, Col } from 'react-bootstrap';
 
 class App extends Component {
     constructor(props) {
@@ -28,7 +23,7 @@ class App extends Component {
         this.state = {
             articles: [],
             loading: true,
-            cart: [],
+            cart:[],
         }
     }
 
@@ -40,42 +35,21 @@ class App extends Component {
             ]
         })
     }
-    render() {
+    render(){
         return (
-
-            <
-            Router >
-            <
-            Routes >
-            <
-            Route exact path = '/'
-            element = {
-                < Home mettre toute injection articles paniers etc / >
-            }
-            /> <
-            Route exact path = '/account'
-            element = {
-                < Account / >
-            }
-            /> <
-            Route exact path = '/browse'
-            element = {
-                < Browse addArticleToCart = {
-                    this.addArticleToCart
-                }
-                />} / >
-                <
-                Route exact path = '/cart'
-                element = {
-                    < Cart / >
-                }
-                /> <
-                /Routes> <
-                /Router>
-            );
-        }
-    }
+            
+            <Router>
+      <Routes>
+        <Route exact path='/' element={<Home mettre toute injection articles paniers etc />} />
+        <Route exact path='/account' element={<Account />} />
+        <Route exact path='/browse' element={<Browse addArticleToCart={this.addArticleToCart} />} />
+        <Route exact path='/cart' element={<Cart />} />
+      </Routes>
+    </Router>
+  );
+}
+}
 
 
 
-    export default App;
+export default App;

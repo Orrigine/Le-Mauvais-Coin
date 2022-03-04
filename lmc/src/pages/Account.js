@@ -11,15 +11,17 @@ import {
     Row,
     Col
 } from 'react-bootstrap';
-
+import SearchNavbar from '../components/MyNavbar'
 
 
 class Account extends Component {
     render() {
-        return ( <
-            p > Votre compte sur le mauvais coin:
-            <
-            /p>
+        return ( 
+        <>
+        <SearchNavbar/> 
+        <p> Votre compte sur le mauvais coin:
+            </p>
+        </>
 
         );
     }

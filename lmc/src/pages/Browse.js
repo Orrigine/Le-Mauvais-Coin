@@ -4,7 +4,7 @@ import React, {
     Component
 } from 'react';
 import { Row, Col } from "react-bootstrap";
-import {MyNavbar, SearchNavbar} from '../components/MyNavbar'
+import SearchNavbar from '../components/MyNavbar';
 
 import Article from "../components/Article";
 

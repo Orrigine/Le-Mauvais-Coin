@@ -1,7 +1,7 @@
 import React, {
     Component
 } from 'react';
-import MyNavbar from '../components/MyNavbar'
+import SearchNavbar from '../components/MyNavbar'
 import { Divider, Dropdown, Icon, Navbar, NavItem } from 'react-bootstrap';
 // import 'bootstrap-css/dist/css/bootstrap.min.css'
 
@@ -12,7 +12,7 @@ class Home extends Component {
     render() {
         return (
             <>
-            <MyNavbar />
+            <SearchNavbar />
             
             <h1> Bi1venue sur Le Mauvais Coin ! </h1>
             <div>
