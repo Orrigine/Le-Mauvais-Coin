@@ -9,8 +9,7 @@ class Cart extends Component {
     return (
         <>
             <SearchNavbar/>
-            <p>Voici votre panier:
-            </p>
+                
 
 
 

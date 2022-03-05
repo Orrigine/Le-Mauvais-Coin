@@ -28,6 +28,7 @@ class App extends Component {
                 ...this.state.cart,
                 article
             ]
+            
         })
     }
     render(){

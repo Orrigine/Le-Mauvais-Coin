@@ -18,9 +18,10 @@ class Footer extends Component {
             <Card className="text-center back-in-black">
                 <Card.Header></Card.Header>
                 <Card.Body>
-                    <Card.Title className="text-light">Special title treatment</Card.Title>
+                    <Card.Title className="text-light">Le Mauvais Coin</Card.Title>
                     <Card.Text className="text-light text-muted">
-                    With supporting text below as a natural lead-in to additional content.
+                    Le Mauvais Coin est un site satyrique qui a pour but de tourner en dérision le site Le Bon Coin avec des articles décalés et des descriptions atypiques. <br />
+                    Plz payez en BitCOIN c'est la sauce pour les affaires avec le Covid.
                     </Card.Text>
                     <Button variant="light">Go somewhere</Button>
                 </Card.Body>

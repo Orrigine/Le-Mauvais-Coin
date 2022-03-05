@@ -11,12 +11,13 @@ class Article extends Component {
           inCart: false
       }
   }
-  addToCart = () => {
-    this.setState({inCart:true})
-    this.props.addArticleToCart(this.props.article)
+  addToCart() {
+    this.setState({inCart:true});
+    this.props.addArticleToCart(this.props.article);
+    console.log(this.props.data)
   }
   render() {
-    console.log(this.props.data.attributes.Image.data);
+    //console.log(this.props.data.attributes.Image.data);
     return (
           <>
           <Col sm="6" md="4" lg="3" >

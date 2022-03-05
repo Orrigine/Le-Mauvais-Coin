@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Container, FormControl, Nav, Navbar } from 'react-bootstrap';
-
+import "../css/Navbar.css"
 
 
 class SearchNavbar extends Component {
@@ -39,8 +39,8 @@ class SearchNavbar extends Component {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link className="text-light" href="/browse"> Articles </Nav.Link>
-                        <Nav.Link className="text-light" href="/cart"> Panier </Nav.Link>
+                        <Nav.Link className="text-light hover-light" href="/browse"> Articles </Nav.Link>
+                        <Nav.Link className="text-light hover-light" href="/cart"> Panier </Nav.Link>
                     </Nav>
                     </Navbar.Collapse>
                 </Container>
