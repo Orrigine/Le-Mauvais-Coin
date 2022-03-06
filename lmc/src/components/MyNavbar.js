@@ -33,7 +33,8 @@ class SearchNavbar extends Component {
                         </div>
                         :null
                     }
-                   
+                    </Navbar.Collapse>
+                    <Navbar.Collapse className="justify-content-end">
                     <Nav
                         className="d-flex"
                         style={{ maxHeight: '100px' }}

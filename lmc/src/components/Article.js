@@ -22,10 +22,10 @@ class Article extends Component {
           <>
           <Col sm="6" md="4" lg="3" >
             <Card>
-              <Card.Img style={{height:"15rem"}} variant="top" src={this.props.data.attributes.Image && "http://localhost:1337"+this.props.data.attributes.Image.data.attributes.url} />
+              <Card.Img variant="top" src={this.props.data.attributes.Image && "http://localhost:1337"+this.props.data.attributes.Image.data.attributes.url} />
               <Card.Body>
                   <Card.Title>{this.props.data.attributes.name}</Card.Title>
-                  <Card.Text style={{height:"5rem"}}>
+                  <Card.Text>
                       {this.props.data.attributes.description}
                   </Card.Text>
                   {[this.state.inCart ? <Link to="/cart"><Button variant="success">Added to Cart - Show Cart</Button></Link> : <Button variant="primary" onClick={() => this.addToCart()}>Add to Cart</Button>]}
