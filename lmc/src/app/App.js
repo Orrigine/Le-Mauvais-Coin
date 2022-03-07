@@ -23,28 +23,44 @@ class App extends Component {
     }
 
     addArticleToCart = (article) => {
-        const kart = [
-                ...this.state.cart,
-                article
-            ]
-        this.setState({cart: kart})
+        let kart = this.state.cart;
+        let updated = false;
+        for (let i = 0; i < kart.length; i++) {
+            let tuple = kart[i];
+            if (tuple.article === article) {
+                tuple.count++;
+                updated = true;
+        }};
+        if (!updated) kart.push({article: article, count: 1});
+        this.setState({cart: kart});
     }
 
     remArticleFromCart = (article) => {
-        const kart = this.state.cart.filter(item => item.id !== article.id);
-        this.setState({ cart: kart });
+        let kart = this.state.cart;
+        for (let i = 0; i < kart.length; i++) {
+            let tuple = kart[i];
+            if (tuple.article === article) {
+                if (tuple.count === 1) kart.splice(i, 1);
+                else tuple.count--;
+        }};
+        this.setState({cart: kart});
     }
 
-
+    getNumberOfArticle = (article) => {
+        for (let i = 0; i < this.state.cart.length; i++) {
+            let tuple = this.state.cart[i];
+            if (tuple.article === article) {
+                return tuple.count;
+        }};
+    }
 
     render(){
-        return (
-            
-            <Router>
+        return (        
+    <Router>
       <Routes>
         <Route exact path='/' element={<Home mettre toute injection articles paniers etc />} />
-        <Route exact path='/browse' element={<Browse addArticleToCart={this.addArticleToCart} remArticleFromCart={this.remArticleFromCart} />} />
-        <Route exact path='/cart' element={<Cart cart={this.state.cart} addArticleToCart={this.addArticleToCart} remArticleFromCart={this.remArticleFromCart}/>} />
+        <Route exact path='/browse' element={<Browse cart={this.state.cart} addArticleToCart={this.addArticleToCart} remArticleFromCart={this.remArticleFromCart} getNumberOfArticle={this.getNumberOfArticle} />} />
+        <Route exact path='/cart' element={<Cart cart={this.state.cart} addArticleToCart={this.addArticleToCart} remArticleFromCart={this.remArticleFromCart} getNumberOfArticle={this.getNumberOfArticle} />} />
       </Routes>
     </Router>
   );
