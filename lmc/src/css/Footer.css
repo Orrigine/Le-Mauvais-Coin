@@ -1,6 +1,21 @@
 .back-in-black {
     background-color: #212529;
 }
-button:hover {
-    background-color: #50565c !important;
+.button-footer:hover {
+    background-color: #abb2b9 !important;
 } 
+
+a {
+    text-decoration: none !important;
+    /* justify-content: space-evenly !important; */
+    display: block !important;
+}
+
+a:hover {
+    color: #fff !important;
+    transition-duration: 0.6s !important;
+}
+
+input {
+    background-color: transparent !important;
+}
