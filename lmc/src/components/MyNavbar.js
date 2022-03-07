@@ -16,7 +16,7 @@ class SearchNavbar extends Component {
             <>
             <Navbar bg="dark" expand="lg">
                 <Container fluid>
-                    <Navbar.Brand className="text-light"><Link to="/">Le Mauvais Coin</Link></Navbar.Brand>
+                    <Navbar.Brand className=""><Link className="text-light" to="/">Le Mauvais Coin</Link></Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                     {
@@ -24,7 +24,7 @@ class SearchNavbar extends Component {
                         <div className="d-flex me-auto my-2 my-lg-0">
                             <FormControl
                             type="search"
-                            className="me-2 textInput"
+                            className="me-2 textInput input-color-white"
                             placeholder="Recherchez un article..."
                             aria-label="Rechercher"
                             value={this.state.search}
@@ -41,8 +41,8 @@ class SearchNavbar extends Component {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >:
-                        <Nav.Link className="text-light hover-light"><Link to="/browse"> Articles </Link></Nav.Link>
-                        <Nav.Link className="text-light hover-light"><Link to="/cart"> Panier </Link></Nav.Link>
+                        <Link className="hover-light padding-top-bot text-light" to="/browse">Articles</Link>
+                        <Link className="hover-light padding-top-bot text-light" to="/cart">Panier</Link>
                     </Nav>
                     </Navbar.Collapse>
                 </Container>

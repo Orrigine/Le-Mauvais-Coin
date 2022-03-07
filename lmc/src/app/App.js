@@ -22,6 +22,7 @@ class App extends Component {
         }
     }
 
+
     addArticleToCart = (article) => {
         let kart = this.state.cart;
         let updated = false;
