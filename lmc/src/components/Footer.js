@@ -38,13 +38,13 @@ class Footer extends Component {
                 <Col lg="2" md="2" sm="12">
                     <Card.Body className="mid">
                         <Card.Title className="text-light">Rejoins Le Mauvais Coin</Card.Title>
-                        <InputGroup className="input-newsletter mb-1">
+                        <InputGroup className="mb-1">
                         
                             <FormControl
                             placeholder="Email"
                             aria-label="Username"
                             
-                            className="back-in-black"
+                            className="back-in-black input-color-white"
                             />
                         </InputGroup>
                     </Card.Body>
@@ -66,7 +66,7 @@ class Footer extends Component {
                 
                    
                     
-                <Card.Footer className="text-center text-muted">:copyright: 2020-2022 Le Mauvais Coin</Card.Footer>
+                <Card.Footer className="text-center text-muted">© 2020-2022 Le Mauvais Coin</Card.Footer>
             </Row>
         </>
         )

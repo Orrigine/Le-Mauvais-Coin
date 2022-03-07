@@ -22,6 +22,7 @@ class App extends Component {
         }
     }
 
+
     addArticleToCart = (article) => {
         const kart = [
                 ...this.state.cart,

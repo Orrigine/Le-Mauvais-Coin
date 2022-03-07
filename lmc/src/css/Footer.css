@@ -5,10 +5,14 @@
     background-color: #abb2b9 !important;
 } 
 
+.input-color-white {
+    color: #fff !important;
+}
+
 a {
     text-decoration: none !important;
     /* justify-content: space-evenly !important; */
-    display: block !important;
+    /* display: block !important; */
 }
 
 a:hover {
