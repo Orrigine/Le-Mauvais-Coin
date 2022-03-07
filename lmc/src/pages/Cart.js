@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SearchNavbar from '../components/MyNavbar';
 import Footer from '../components/Footer'
 import { Row, Col } from "react-bootstrap";
-import Article from "../components/Article";
+import Article from "../components/ArticleCard";
 
 class Cart extends Component {
 
@@ -19,7 +19,7 @@ class Cart extends Component {
               {this.props.cart.length === 0 ?<>
                   <p>No article in cart</p>
                 </>
-                : this.props.cart.map((article, i) => <Article addArticleToCart={this.props.addArticleToCart} remArticleFromCart={this.props.remArticleFromCart} data={article} inCart={true} />)
+                : this.props.cart.map((tuple, i) => <Article addArticleToCart={this.props.addArticleToCart} remArticleFromCart={this.props.remArticleFromCart} getNumberOfArticle={this.props.getNumberOfArticle} data={tuple.article} viewFromCart={true} />)
               }
             </Row>
           </Col>

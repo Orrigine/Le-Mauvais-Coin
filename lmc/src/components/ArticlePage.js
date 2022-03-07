@@ -1,0 +1,1 @@
+// One page per article LOOL (more pain to do)
