@@ -23,22 +23,28 @@ class App extends Component {
     }
 
     addArticleToCart = (article) => {
-        this.setState({
-            cart: [
+        const kart = [
                 ...this.state.cart,
                 article
             ]
-            
-        })
+        this.setState({cart: kart})
     }
+
+    remArticleFromCart = (article) => {
+        const kart = this.state.cart.filter(item => item.id !== article.id);
+        this.setState({ cart: kart });
+    }
+
+
+
     render(){
         return (
             
             <Router>
       <Routes>
         <Route exact path='/' element={<Home mettre toute injection articles paniers etc />} />
-        <Route exact path='/browse' element={<Browse addArticleToCart={this.addArticleToCart} />} />
-        <Route exact path='/cart' element={<Cart />} />
+        <Route exact path='/browse' element={<Browse addArticleToCart={this.addArticleToCart} remArticleFromCart={this.remArticleFromCart} />} />
+        <Route exact path='/cart' element={<Cart cart={this.state.cart} addArticleToCart={this.addArticleToCart} remArticleFromCart={this.remArticleFromCart}/>} />
       </Routes>
     </Router>
   );

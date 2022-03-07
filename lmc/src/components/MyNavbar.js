@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Container, FormControl, Nav, Navbar } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import "../css/Navbar.css"
 
 
@@ -15,7 +16,7 @@ class SearchNavbar extends Component {
             <>
             <Navbar bg="dark" expand="lg">
                 <Container fluid>
-                    <Navbar.Brand className="text-light" href="/">Le Mauvais Coin</Navbar.Brand>
+                    <Navbar.Brand className="text-light"><Link to="/">Le Mauvais Coin</Link></Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                     {
@@ -39,14 +40,13 @@ class SearchNavbar extends Component {
                         className="d-flex"
                         style={{ maxHeight: '100px' }}
                         navbarScroll
-                    >
-                        <Nav.Link className="text-light hover-light" href="/browse"> Articles </Nav.Link>
-                        <Nav.Link className="text-light hover-light" href="/cart"> Panier </Nav.Link>
+                    >:
+                        <Nav.Link className="text-light hover-light"><Link to="/browse"> Articles </Link></Nav.Link>
+                        <Nav.Link className="text-light hover-light"><Link to="/cart"> Panier </Link></Nav.Link>
                     </Nav>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-
             </>
         )
     }
