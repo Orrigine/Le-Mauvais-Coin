@@ -24,7 +24,14 @@ class ArticlePage extends Component {
          
     }
 
-    
+    render() {
+        return (
+            <h1>LUCAS SALE MERDE</h1>
+
+
+
+        )
+    }
 } export default ArticlePage;
 
 
