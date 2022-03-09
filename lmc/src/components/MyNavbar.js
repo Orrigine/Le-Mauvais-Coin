@@ -11,7 +11,7 @@ class SearchNavbar extends Component {
             search: ''
         };
     }
-    render() {
+    render() {        
         return (
             <>
             <Navbar bg="dark" expand="lg">
@@ -23,12 +23,13 @@ class SearchNavbar extends Component {
                         this.props.showSearch && this.props.showSearch ? 
                         <div className="d-flex me-auto my-2 my-lg-0">
                             <FormControl
-                            type="search"
+                            type="text"
+                            name="search"   
                             className="me-2 textInput input-color-white"
                             placeholder="Recherchez un article..."
                             aria-label="Rechercher"
-                            value={this.state.search}
-                            onChange={event => this.setState({search: event.target.value})}
+                            value={this.props.search}
+                            onChange={(e) =>this.handleChange(e)}
                             />
                             <Button type="submit" variant="outline-success" className="me-auto my-2 my-lg-0" onClick={()=>this.onSubmit()}>Rechercher</Button>
                         </div>

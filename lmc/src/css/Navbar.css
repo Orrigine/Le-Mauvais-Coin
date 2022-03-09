@@ -26,3 +26,7 @@ a:hover {
     color: #fff !important;
     transition-duration: 0.6s !important;
 }
+
+nav {
+    margin-bottom: 1rem;
+}
