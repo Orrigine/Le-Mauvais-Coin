@@ -7,7 +7,7 @@
     background-color: #5c6166 !important;
 }
 
-a {
+a.text-light {
     text-decoration: none !important;
     padding-left: .5em !important;
     padding-right: .5em !important;

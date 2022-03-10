@@ -10,7 +10,7 @@ class SearchNavbar extends Component {
         return (
             <>
             <Navbar bg="dark" expand="lg">
-                <Container fluid>
+                <Container fluid>  {/* Logo (left side) */}
                     <Navbar.Brand className=""><Link className="text-light" to="/">Le Mauvais Coin</Link></Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse className="justify-content-end">
@@ -18,8 +18,8 @@ class SearchNavbar extends Component {
                         className="d-flex"
                         style={{ maxHeight: '100px' }}
                         navbarScroll
-                    >
-                        <Link className="hover-light padding-top-bot text-light" to="/browse">Articles</Link>
+                    >   {/* Links to other pages (right side) */}
+                        <Link className="hover-light padding-top-bot text-light" to="/">Articles</Link>
                         <Link className="hover-light padding-top-bot text-light" to="/cart">Panier</Link>
                     </Nav>
                     </Navbar.Collapse>

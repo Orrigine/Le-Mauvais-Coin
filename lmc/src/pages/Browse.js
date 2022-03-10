@@ -57,7 +57,7 @@ class Browse extends Component {
         }
 
         return (
-            <>
+            <> {/* Special navbar with search field */}
                 <Navbar bg="dark" expand="lg">
                 <Container fluid>
                     <Navbar.Brand className=""><Link className="text-light" to="/">Le Mauvais Coin</Link></Navbar.Brand>
@@ -81,14 +81,14 @@ class Browse extends Component {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Link className="hover-light padding-top-bot text-light" to="/browse">Articles</Link>
+                        <Link className="hover-light padding-top-bot text-light" to="/">Articles</Link>
                         <Link className="hover-light padding-top-bot text-light" to="/cart">Panier</Link>
                     </Nav>
                     </Navbar.Collapse>
                 </Container>
                 </Navbar>
 
-                <Row>
+                <Row>  {/* Articles display */}
                     <Col sm="2" /><Col sm="8">
                         <Row>
                             {this.state.loading ?
