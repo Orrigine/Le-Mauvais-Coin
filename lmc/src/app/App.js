@@ -11,6 +11,7 @@ import React, {
 import Home from '../pages/Home';
 import Browse from '../pages/Browse';
 import Cart from '../pages/Cart';
+import ArticlePage from '../pages/ArticlePage';
 
 class App extends Component {
     constructor(props) {
@@ -19,6 +20,8 @@ class App extends Component {
             articles: [],
             loading: true,
             cart:[],
+            search: '',
+            
         }
     }
 
@@ -55,13 +58,24 @@ class App extends Component {
         }};
     }
 
+    handleChange = (e, search) => {
+        e.preventDefault()
+        let name = e.target.name
+        this.setState({
+            [name]: e.target.value
+        })
+    }
+
     render(){
-        return (        
+        return (     
+            
+        
     <Router>
       <Routes>
         <Route exact path='/' element={<Home mettre toute injection articles paniers etc />} />
-        <Route exact path='/browse' element={<Browse cart={this.state.cart} addArticleToCart={this.addArticleToCart} remArticleFromCart={this.remArticleFromCart} getNumberOfArticle={this.getNumberOfArticle} />} />
+        <Route exact path='/browse' element={<Browse handleChange={this.handleChange.bind(this)} cart={this.state.cart} addArticleToCart={this.addArticleToCart} remArticleFromCart={this.remArticleFromCart} getNumberOfArticle={this.getNumberOfArticle} />} />
         <Route exact path='/cart' element={<Cart cart={this.state.cart} addArticleToCart={this.addArticleToCart} remArticleFromCart={this.remArticleFromCart} getNumberOfArticle={this.getNumberOfArticle} />} />
+        <Route exact path='/article/:id' element={<ArticlePage cart={this.state.cart} addArticleToCart={this.addArticleToCart} remArticleFromCart={this.remArticleFromCart} getNumberOfArticle={this.getNumberOfArticle} />} />
       </Routes>
     </Router>
   );

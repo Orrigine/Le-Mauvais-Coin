@@ -10,7 +10,7 @@ class Article extends Component {
           inCart: this.props.inCart
       }
   }
-  addToCart() {
+  addToCart() { 
     this.setState({inCart:true});
     this.props.addArticleToCart(this.props.data);
   }
