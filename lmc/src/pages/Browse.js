@@ -1,10 +1,10 @@
 
 
 import React, {
-    Component, useRef
+    Component, 
 } from 'react';
 import { Row, Col, Spinner, Navbar, Container, FormControl, Button, Nav } from "react-bootstrap";
-import SearchNavbar from '../components/MyNavbar';
+
 import Footer from '../components/Footer'
 import Article from "../components/ArticleCard";
 import { Link } from 'react-router-dom';
@@ -25,13 +25,6 @@ class Browse extends Component {
         console.log(this.state.search);
     }   
     
-    // handleChange = (e, search) => {
-    //     e.preventDefault()
-    //     let name = e.target.name
-    //     this.setState({
-    //         [name]: e.target.value
-    //     })
-    // }
 
     handleChange = (e) => {
         e.preventDefault();
@@ -52,7 +45,7 @@ class Browse extends Component {
             }
         })
         const articles = await response.json()
-        // const childRef = useRef(null);
+        
 
         this.setState({                              
             articles: articles,
@@ -62,7 +55,7 @@ class Browse extends Component {
     }
     render() {
 
-        const inputValueInNavbar = inputSearch => {console.log(inputSearch)}
+        
 
         if(this.props.loading){
             return <Spinner animation="grow"/>
@@ -78,14 +71,14 @@ class Browse extends Component {
 
         return (
             <>
-                {/* <SearchNavbar onChange={inputValueInNavbar} showSearch={false}  /> */}
+                
                 <Navbar bg="dark" expand="lg">
                 <Container fluid>
                     <Navbar.Brand className=""><Link className="text-light" to="/">Le Mauvais Coin</Link></Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                     {
-                        // this.props.showSearch && this.props.showSearch ? 
+                        
                         <div className="d-flex me-auto my-2 my-lg-0">
                             <FormControl
                             type="text"
@@ -116,8 +109,7 @@ class Browse extends Component {
                 <Row>
                     <Col sm="2" /><Col sm="8">
                         <Row>
-                        {/* {this.state.articles.data && this.state.articles.data.map((article, i) => 
-                            <Article addArticleToCart={this.props.addArticleToCart} remArticleFromCart={this.props.remArticleFromCart} getNumberOfArticle={this.props.getNumberOfArticle} data={article} />)} */}
+                        
                             {showSearchArticles && showSearchArticles.map((article, i) => 
                             <Article addArticleToCart={this.props.addArticleToCart} remArticleFromCart={this.props.remArticleFromCart} getNumberOfArticle={this.props.getNumberOfArticle} data={article} />)}
                         </Row>
