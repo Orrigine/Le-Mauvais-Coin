@@ -11,8 +11,6 @@
 
 a {
     text-decoration: none !important;
-    /* justify-content: space-evenly !important; */
-    /* display: block !important; */
 }
 
 a:hover {
@@ -22,4 +20,8 @@ a:hover {
 
 input {
     background-color: transparent !important;
+}
+
+.back-in-black {
+    margin-top: 1rem;
 }

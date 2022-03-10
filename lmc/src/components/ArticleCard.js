@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Button, Card, Col } from "react-bootstrap";
+import { Button, Card, Col, Placeholder } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../css/Article.css"
 
@@ -26,13 +26,40 @@ class Article extends Component {
     }
   }
   render() {
+    if (this.props.placeholder) {
+      return (
+        <Col sm="6" md="4" lg="3" >
+          <Card style={{ width: '18rem' }}>
+            <div className="cardImg">
+              <Card.Img variant="top" src="https://horizondatasys.com/wp-content/uploads/2018/01/Dark-Gray-Square-300x300.png" />
+            </div>
+            <Card.Body>
+              <Placeholder as={Card.Title} animation="wave">
+                <Placeholder xs={4} /> <Placeholder xs={7} />
+              </Placeholder>
+              <Placeholder as={Card.Text} animation="wave">
+                <Placeholder xs={3} />
+              </Placeholder>
+              <div className="oneButton">
+                <Placeholder.Button variant="primary" xs={12} />
+              </div>
+              <div className="oneButton">
+                <Placeholder.Button variant="info" xs={12} />
+              </div>
+            </Card.Body>
+          </Card>
+        </Col>
+      )
+    }
+
+
     return (
           <>
           <Col sm="6" md="4" lg="3" >
             <Card>
               <Link to={"/article/"+this.props.data.id}>
                 <div className="cardImg">
-                  <Card.Img variant="top" src={this.props.data.attributes.Image && "http://localhost:1337"+this.props.data.attributes.Image.data.attributes.url} />
+                  <Card.Img fluid="true" variant="top" src={this.props.data.attributes.Image && "http://localhost:1337"+this.props.data.attributes.Image.data.attributes.url} />
                 </div>
               </Link>
                 <Card.Body>

@@ -18,7 +18,6 @@ class Footer extends Component {
             <>
             <Row className="back-in-black">
                 <Col lg='1' md='1' className='.d-sm-none .d-md-block'></Col>
-                {/* <Card.Header></Card.Header> */}
                 <Col lg="2" md="2" sm="12">
                     <Card.Body className="left">
                         <Col sm="12" md="12" lg="12">
