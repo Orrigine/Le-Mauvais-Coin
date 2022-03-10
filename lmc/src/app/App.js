@@ -30,7 +30,7 @@ class App extends Component {
         let updated = false;
         for (let i = 0; i < kart.length; i++) {
             let tuple = kart[i];
-            if (tuple.article === article) {
+            if (tuple.article.id === article.id) {
                 tuple.count++;
                 updated = true;
         }};
@@ -42,7 +42,7 @@ class App extends Component {
         let kart = this.state.cart;
         for (let i = 0; i < kart.length; i++) {
             let tuple = kart[i];
-            if (tuple.article === article) {
+            if (tuple.article.id === article.id) {
                 if (tuple.count === 1) kart.splice(i, 1);
                 else tuple.count--;
         }};
@@ -52,7 +52,7 @@ class App extends Component {
     getNumberOfArticle = (article) => {
         for (let i = 0; i < this.state.cart.length; i++) {
             let tuple = this.state.cart[i];
-            if (tuple.article === article) {
+            if (tuple.article.id === article.id) {
                 return tuple.count;
         }};
         return 0;
