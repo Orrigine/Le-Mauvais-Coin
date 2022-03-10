@@ -93,7 +93,7 @@ class Browse extends Component {
                         <Row>
                             {this.state.loading ?
                                 placeholderNumber.map(() => <Article placeholder={true} />)
-                                : showSearchArticles && showSearchArticles.map((article) => <Article addArticleToCart={this.props.addArticleToCart} remArticleFromCart={this.props.remArticleFromCart} getNumberOfArticle={this.props.getNumberOfArticle} data={article} />)}
+                                : showSearchArticles && showSearchArticles.map((article) => <Article key={article.id.toString()} addArticleToCart={this.props.addArticleToCart} remArticleFromCart={this.props.remArticleFromCart} getNumberOfArticle={this.props.getNumberOfArticle} data={article} />)}
                         </Row>
                     </Col>
                 </Row>

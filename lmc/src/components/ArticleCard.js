@@ -11,22 +11,57 @@ class Article extends Component {
       }
   }
 
-  addToCart() { 
-    this.setState({inCart:true});
-    this.props.addArticleToCart(this.props.data);
-  }
-
-  remFromCart() {
-    this.setState({inCart:false});
-    this.props.remArticleFromCart(this.props.data);
-  }
-
   remAllFromCart() {
     this.setState({inCart:false});
     const initialNumber = this.props.getNumberOfArticle(this.props.data)
     for (let i = 0; i < initialNumber; i++) {
       this.props.remArticleFromCart(this.props.data);
     }
+  }
+
+  CardButtons() {
+    let firstLine;
+    let secondLine;
+    let thirdLine;
+
+    if (this.props.viewFromCart) { /* Buttons in cart */
+      firstLine = <>
+        <Button variant="success" disabled={true}> 
+          {this.props.getNumberOfArticle(this.props.data)} in the cart
+          ({(this.props.data.attributes.price * this.props.getNumberOfArticle(this.props.data) /100).toFixed(2)}€)
+        </Button>
+      </>;
+      secondLine = <>
+        <Button variant="primary" onClick={() => this.props.addArticleToCart(this.props.data)}>Add one</Button>
+        <Button variant="primary" disabled={this.props.getNumberOfArticle(this.props.data) === 1} onClick={() => this.props.remArticleFromCart(this.props.data)}>Remove one</Button>
+      </>;
+      thirdLine = <>
+        <Button variant="danger" onClick={() => this.remAllFromCart()}>Remove all</Button>
+      </>;
+    }
+    else if (this.props.getNumberOfArticle(this.props.data) !== 0) { /* Buttons after "add to cart" pressed */
+        firstLine = <>
+          <Link to="/cart"><Button variant="success">Added to Cart - Show Cart</Button></Link>
+        </>;
+        thirdLine = <>
+          <Button variant="danger" onClick={() => this.props.remArticleFromCart(this.props.data)()}>Cancel</Button>
+        </>;
+    }
+    else { /* Default buttons */
+        firstLine = <>
+          <Button variant="primary" onClick={() => this.props.addArticleToCart(this.props.data)}>Add to Cart</Button>
+        </>;
+        thirdLine = <>
+          <Link to={"/article/"+this.props.data.id}><Button variant="info">Show description</Button></Link>
+        </>;
+    }
+    return (
+      <>
+        <div className="firstLine"> {firstLine} </div>
+        <div className="secondLine">{secondLine}</div>
+        <div className="thirdLine"> {thirdLine} </div>
+      </>
+    )
   }
 
   render() {
@@ -45,10 +80,10 @@ class Article extends Component {
               <Placeholder as={Card.Text} animation="wave">
                 <Placeholder xs={3} />
               </Placeholder>
-              <div className="oneButton">
+              <div className="firstLine">
                 <Placeholder.Button variant="primary" xs={12} />
               </div>
-              <div className="oneButton">
+              <div className="thirdLine">
                 <Placeholder.Button variant="info" xs={12} />
               </div>
             </Card.Body>
@@ -58,14 +93,13 @@ class Article extends Component {
       )
     }
 
-
     return (
           <>  {/* Article Card */}
           <Col sm="12" md="6" lg="3" >
             <Card>
               <Link to={"/article/"+this.props.data.id}>
                 <div className="cardImg">
-                  <Card.Img fluid="true" variant="top" src={this.props.data.attributes.Image && "http://localhost:1337"+this.props.data.attributes.Image.data.attributes.url} />
+                  <Card.Img variant="top" src={this.props.data.attributes.Image && "http://localhost:1337"+this.props.data.attributes.Image.data.attributes.url} />
                 </div>
               </Link>
                 <Card.Body>
@@ -73,41 +107,7 @@ class Article extends Component {
                   <Card.Text>
                       {(this.props.data.attributes.price/100).toFixed(2)+"€"}
                   </Card.Text>
-                      {this.props.viewFromCart ?
-                        <>   {/* Buttons in cart */}
-                        <div className="oneButton">
-                          <Button variant="success" disabled> 
-                            {this.props.getNumberOfArticle(this.props.data)} in the cart
-                            ({(this.props.data.attributes.price * this.props.getNumberOfArticle(this.props.data) /100).toFixed(2)}€)
-                            </Button>
-                        </div>
-                        <div className="twoButtons">
-                          <Button variant="primary" onClick={() => this.props.addArticleToCart(this.props.data)}>Add one</Button>
-                          <Button variant="primary" disabled={this.props.getNumberOfArticle(this.props.data) === 1} onClick={() => this.props.remArticleFromCart(this.props.data)}>Remove one</Button>
-                        </div>
-                        <div className="oneButton">
-                          <Button variant="danger" onClick={() => this.remAllFromCart()}>Remove all</Button>
-                        </div>
-                        </>
-                      : <>{this.state.inCart ?
-                        <>   {/* Buttons after "add to cart" pressed */}
-                          <div className="oneButton">
-                            <Link to="/cart"><Button variant="success">Added to Cart - Show Cart</Button></Link>
-                          </div>
-                          <div className="oneButton">
-                            <Button variant="danger" onClick={() => this.remFromCart()}>Cancel</Button>
-                          </div>
-                        </>
-                        : <> {/* Default buttons */}
-                          <div className="oneButton">
-                            <Button variant="primary" onClick={() => this.addToCart()}>Add to Cart</Button>
-                          </div>
-                          <div className="oneButton">
-                            <Link to={"/article/"+this.props.data.id}><Button variant="info">Show description</Button></Link>
-                          </div>
-                        </>
-                        } </>
-                      }
+                  {this.CardButtons()}
               </Card.Body>
             </Card>
           </Col>

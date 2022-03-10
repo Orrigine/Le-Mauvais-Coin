@@ -6,3 +6,11 @@
   margin: 1%;
   width: 98%;
 }
+
+.priceAndEmpty button.btn-danger {
+  width: 18%;
+}
+
+.priceAndEmpty button.btn-success {
+  width: 78%;
+}

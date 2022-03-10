@@ -20,7 +20,7 @@ class Cart extends Component {
       return (
         <>   {/* Empty cart display */}
         <MyNavbar />
-        <Row>
+        <Row className='main'>
           <Col sm="2" /><Col sm="8">
               <Alert variant="danger">
                 <Alert.Heading>Your cart is empty!</Alert.Heading>
@@ -44,21 +44,23 @@ class Cart extends Component {
         <>
         <MyNavbar/>
         
-        <Row> {/* Articles in cart display */}
+        <Row className='main'> {/* Articles in cart display */}
           <Col sm="0" lg="2" /><Col sm="12" lg="8">
             <Row>
               {this.props.cart.map((tuple) => 
-                <Article addArticleToCart={this.props.addArticleToCart} remArticleFromCart={this.props.remArticleFromCart} getNumberOfArticle={this.props.getNumberOfArticle} data={tuple.article} viewFromCart={true} />)
+                <Article key={tuple.article.id.toString()} addArticleToCart={this.props.addArticleToCart} remArticleFromCart={this.props.remArticleFromCart} getNumberOfArticle={this.props.getNumberOfArticle} data={tuple.article} viewFromCart={true} />)
               }
             </Row>
           </Col>
         </Row>
         <Row> {/* Payment section */}
-          <Col sm="0" lg="2" />
-          <Col sm="12" lg="8">
+          <Col sm="0" md="2" lg="4" />
+          <Col sm="12" md="8" lg="4">
             <Row className="payment">
-              <Col sm="12" lg="9"><Button variant="success" disabled="true">You have {totalCount} article(s) in your cart. Total price: {totalPrice.toFixed(2)}€</Button></Col>
-              <Col sm="12" lg="3"><Button variant="danger" onClick={() => this.emptyCart()}>Empty cart</Button></Col>
+              <Col sm="12" className='priceAndEmpty'>
+                <Button variant="success" disabled={true}>You have {totalCount} article(s) in your cart. Total price: {totalPrice.toFixed(2)}€</Button>
+                <Button variant="danger" onClick={() => this.emptyCart()}>Empty cart</Button>
+              </Col>
               <Col sm="12"><Button variant="primary">Proceed to payment</Button></Col>
             </Row>
           </Col>

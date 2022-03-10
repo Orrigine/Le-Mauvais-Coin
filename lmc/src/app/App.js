@@ -55,6 +55,7 @@ class App extends Component {
             if (tuple.article === article) {
                 return tuple.count;
         }};
+        return 0;
     }
 
     render(){
