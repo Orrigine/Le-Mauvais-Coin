@@ -10,14 +10,17 @@ class Article extends Component {
           inCart: this.props.inCart
       }
   }
+
   addToCart() { 
     this.setState({inCart:true});
     this.props.addArticleToCart(this.props.data);
   }
+
   remFromCart() {
     this.setState({inCart:false});
     this.props.remArticleFromCart(this.props.data);
   }
+
   remAllFromCart() {
     this.setState({inCart:false});
     const initialNumber = this.props.getNumberOfArticle(this.props.data)
@@ -25,9 +28,11 @@ class Article extends Component {
       this.props.remArticleFromCart(this.props.data);
     }
   }
+
   render() {
     if (this.props.placeholder) {
       return (
+        <>   {/* Placeholder loading card */}
         <Col sm="6" md="4" lg="3" >
           <Card style={{ width: '18rem' }}>
             <div className="cardImg">
@@ -49,13 +54,14 @@ class Article extends Component {
             </Card.Body>
           </Card>
         </Col>
+        </>
       )
     }
 
 
     return (
-          <>
-          <Col sm="6" md="4" lg="3" >
+          <>  {/* Article Card */}
+          <Col sm="12" md="6" lg="3" >
             <Card>
               <Link to={"/article/"+this.props.data.id}>
                 <div className="cardImg">
@@ -65,36 +71,39 @@ class Article extends Component {
                 <Card.Body>
                     <Card.Title>{this.props.data.attributes.name}</Card.Title>
                   <Card.Text>
-                      {this.props.data.attributes.price/100+"€"}
+                      {(this.props.data.attributes.price/100).toFixed(2)+"€"}
                   </Card.Text>
                       {this.props.viewFromCart ?
-                        <>
-                        <div class="oneButton">
-                          <Button variant="success" disabled>In cart: {this.props.getNumberOfArticle(this.props.data)}</Button>
+                        <>   {/* Buttons in cart */}
+                        <div className="oneButton">
+                          <Button variant="success" disabled> 
+                            {this.props.getNumberOfArticle(this.props.data)} in the cart
+                            ({(this.props.data.attributes.price * this.props.getNumberOfArticle(this.props.data) /100).toFixed(2)}€)
+                            </Button>
                         </div>
-                        <div class="twoButtons">
+                        <div className="twoButtons">
                           <Button variant="primary" onClick={() => this.props.addArticleToCart(this.props.data)}>Add one</Button>
                           <Button variant="primary" disabled={this.props.getNumberOfArticle(this.props.data) === 1} onClick={() => this.props.remArticleFromCart(this.props.data)}>Remove one</Button>
                         </div>
-                        <div class="oneButton">
+                        <div className="oneButton">
                           <Button variant="danger" onClick={() => this.remAllFromCart()}>Remove all</Button>
                         </div>
                         </>
                       : <>{this.state.inCart ?
-                        <>
-                          <div class="oneButton">
-                            <Button variant="success"><Link to="/cart">Added to Cart - Show Cart</Link></Button>
+                        <>   {/* Buttons after "add to cart" pressed */}
+                          <div className="oneButton">
+                            <Link to="/cart"><Button variant="success">Added to Cart - Show Cart</Button></Link>
                           </div>
-                          <div class="oneButton">
+                          <div className="oneButton">
                             <Button variant="danger" onClick={() => this.remFromCart()}>Cancel</Button>
                           </div>
                         </>
-                        : <>
+                        : <> {/* Default buttons */}
                           <div className="oneButton">
                             <Button variant="primary" onClick={() => this.addToCart()}>Add to Cart</Button>
                           </div>
                           <div className="oneButton">
-                            <Button variant="info"><Link to={"/article/"+this.props.data.id}>Show description</Link></Button>
+                            <Link to={"/article/"+this.props.data.id}><Button variant="info">Show description</Button></Link>
                           </div>
                         </>
                         } </>

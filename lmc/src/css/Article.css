@@ -11,7 +11,7 @@ div.cardImg {
   max-height:100%;
 }
 
-.oneButton * {
+.oneButton, .oneButton Button, .twoButtons {
   margin: 1%;
   width: 98%;
 }

@@ -15,7 +15,7 @@ class Footer extends Component {
     render() {
         return (
 
-            <>
+            <>  {/*Links on the left */}
             <Row className="back-in-black">
                 <Col lg='1' md='1' className='.d-sm-none .d-md-block'></Col>
                 <Col lg="2" md="2" sm="12">
@@ -34,7 +34,7 @@ class Footer extends Component {
                 </Col>
                 <Col lg='2' md='2' className='.d-sm-none .d-md-block'></Col>
 
-                <Col lg="2" md="2" sm="12">
+                <Col lg="2" md="2" sm="12">  {/* Email form to newsletter */}
                     <Card.Body className="mid">
                         <Card.Title className="text-light">Rejoins Le Mauvais Coin</Card.Title>
                         <InputGroup className="mb-1">
@@ -50,21 +50,18 @@ class Footer extends Component {
                 </Col>
                 <Col lg='2' md='2' className='.d-sm-none .d-md-block'></Col>
 
-                <Col lg="2" md="2" sm="12">
+                <Col lg="2" md="2" sm="12">  {/* Website description on the right */}
                     <Card.Body className="right">
                             <Card.Title className="text-light">Le Mauvais Coin</Card.Title>
                             <Card.Text className="text-light text-muted">
                             Le Mauvais Coin est un site satyrique qui a pour but de tourner en dérision le site Le Bon Coin avec des articles décalés et des descriptions atypiques. <br />
                            
                         </Card.Text>
-                        {/* <Button className="button-footer" variant="light">Go somewhere</Button> */}
                         
                     </Card.Body>
                 </Col>
                 <Col lg='1' md='1' className='.d-sm-none .d-md-block'></Col>
                 
-                   
-                    
                 <Card.Footer className="text-center text-muted">© 2020-2022 Le Mauvais Coin</Card.Footer>
             </Row>
         </>
