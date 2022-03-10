@@ -20,3 +20,11 @@ div.cardImg {
   margin: 1%;
   width: 48%;
 } 
+/* ------- ArticlePage CSS Part --------- */
+div.cardPageImg {
+    height: 15rem;
+    width: 20rem;
+}
+div.description-text {
+    color: #000000 !important;
+}
