@@ -97,7 +97,7 @@ class Browse extends Component {
                         </Row>
                     </Col>
                 </Row>
-                <Footer/>          
+                <Footer/> 
             </>
         );
     }

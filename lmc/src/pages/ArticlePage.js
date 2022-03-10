@@ -26,8 +26,10 @@ class ArticlePage extends Component {
 
     render() {
         return (
-
-            <p>{this.state.article}</p>
+            <>
+            <p>{this.props.data.attributes.name}</p>
+            <h1>Coucou</h1>
+            </>
 
         )
     }
