@@ -44,7 +44,7 @@ class Article extends Component {
           <Link to="/cart"><Button variant="success">Added to Cart - Show Cart</Button></Link>
         </>;
         thirdLine = <>
-          <Button variant="danger" onClick={() => this.props.remArticleFromCart(this.props.data)()}>Cancel</Button>
+          <Button variant="danger" onClick={() => this.remAllFromCart(this.props.data)}>Remove from cart</Button>
         </>;
     }
     else { /* Default buttons */
@@ -69,7 +69,7 @@ class Article extends Component {
       return (
         <>   {/* Placeholder loading card */}
         <Col sm="6" md="4" lg="3" >
-          <Card style={{ width: '18rem' }}>
+          <Card className="singleCard">
             <div className="cardImg">
               <Card.Img variant="top" src="https://horizondatasys.com/wp-content/uploads/2018/01/Dark-Gray-Square-300x300.png" />
             </div>
@@ -96,7 +96,7 @@ class Article extends Component {
     return (
           <>  {/* Article Card */}
           <Col sm="12" md="6" lg="3" >
-            <Card>
+            <Card className="singleCard">
               <Link to={"/article/"+this.props.data.id}>
                 <div className="cardImg">
                   <Card.Img variant="top" src={this.props.data.attributes.Image && "http://localhost:1337"+this.props.data.attributes.Image.data.attributes.url} />

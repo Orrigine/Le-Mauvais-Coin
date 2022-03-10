@@ -2,8 +2,9 @@
   margin: 7px 0;
 }
 
-div.cardImg {
+.singleCard .cardImg {
   height: 15rem;
+  text-align: center;
 }
 
 .card-img-top {
@@ -23,19 +24,7 @@ div.cardImg {
 } 
 
 /* ------- ArticlePage CSS Part --------- */
-div.cardPageImg {
-    height: 15rem;
-    width: 20rem;
-}
-div.description-text {
-    color: #000000 !important;
-}
-.min-height { 
-    min-height: 71vh;
-}
-
-
-div.img-container {
-    max-width: 600px;
-    max-height: 400px;
+.articlePage .cardImg {
+  max-height: 50vmax;
+  text-align: center;
 }

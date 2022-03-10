@@ -6,132 +6,124 @@ import "../css/Article.css";
 import { Link } from "react-router-dom";
 
 class ArticlePage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            
-        article:  [],
-           loading: true
-        }
+  constructor(props) {
+    super(props);
+    this.state = {
+    article:  [],
+    loading: true
     }
+  }
 
-    async componentDidMount() {
-        const id = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
-        const response = await fetch('http://localhost:1337/api/articles/'+id+'/?populate=*',{
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        })
-        const article = await response.json();
-        
-        setTimeout(() => this.setState({
-            article: article,
-            loading: false
-        }), 500);
+  async componentDidMount() {
+    const id = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
+    const response = await fetch('http://localhost:1337/api/articles/'+id+'/?populate=*',{
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
+    const article = await response.json();
+    
+    setTimeout(() => this.setState({
+      article: article,
+      loading: false
+    }), 200);
+  }
+
+  remAllFromCart() {
+    this.setState({inCart:false});
+    const initialNumber = this.props.getNumberOfArticle(this.state.article.data)
+    for (let i = 0; i < initialNumber; i++) {
+      this.props.remArticleFromCart(this.state.article.data);
     }
+  }
+ 
+  CardButtons() {
+    let firstLine;
+    let secondLine;
+    let thirdLine;
 
-    render() {
+    if (this.props.getNumberOfArticle(this.state.article.data) !== 0) { /* Buttons after "add to cart" pressed */
+    firstLine = <>
+      <Link to="/cart"><Button variant="success">Added to Cart - Show Cart</Button></Link>
+    </>;
+    secondLine = <>
+      <Button variant="danger" onClick={() => this.remAllFromCart()}>Remove from cart</Button>
+      <Link to="/"><Button variant="info">Back to main page</Button></Link>
+    </>;
+    }
+    else { /* Default buttons */
+      firstLine = <>
+        <Button variant="primary" onClick={() => this.props.addArticleToCart(this.state.article.data)}>Add to Cart</Button>
+      </>;
+      thirdLine = <>
+        <Link to="/"><Button variant="info">Back to main page</Button></Link>
+      </>;
+    }
+    return (
+      <>
+        <div className="firstLine"> {firstLine} </div>
+        <div className="secondLine"> {secondLine} </div>
+        <div className="thirdLine"> {thirdLine} </div>
+      </>
+    )
+  }
+
+  render() {
+    if (this.state.loading) {
+      return (
+        <>
+          <MyNavbar/>
+          <Row className="main articlePage">
+            <Col lg="3" sm="0" />
+            <Col lg="6" sm="0">
+              <Card>
+                <Card.Img variant="top" src="https://horizondatasys.com/wp-content/uploads/2018/01/Dark-Gray-Square-300x300.png" />
+                <Card.Body>
+                  <Card.Title>
+                    <Placeholder as={Card.Title} animation="wave">
+                      <Placeholder xs={7} /> <Placeholder xs={4} />
+                    </Placeholder>
+                  </Card.Title>
+                  <Placeholder as={Card.Text} animation="wave">
+                    <Placeholder xs={3} />
+                  </Placeholder>
+                  <Placeholder.Button className="firstLine" variant="primary" xs="12" />
+                  <Placeholder.Button className="thirdLine" variant="info" xs="12" />
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+          <Footer />
+        </>
+      )
+    }
 
     return (
-        <>  
-            <MyNavbar/>
-            {this.state.loading ? 
-            <>
-            <div className="min-height main text-center">
-                <p aria-hidden="true">
-                    <div className="text-center cardPageImg">
-                        <Card.Img style={{height: this.state.article.data ? this.state.article.data.attributes.Image.data.attributes.formats.thumbnail.height :null}} variant="top" src="https://horizondatasys.com/wp-content/uploads/2018/01/Dark-Gray-Square-300x300.png" />
-                    </div>
-                    <Placeholder as={Card.Text} animation="wave">
-                        <Placeholder xs={6} />
-                    </Placeholder>
-                    <Placeholder as={Card.Text} animation="wave">
-                        <Placeholder xs={8} />
-                    </Placeholder>
-                    <Placeholder as={Card.Text} animation="wave">
-                        <Placeholder xs={8} />
-                    </Placeholder>
-                </p>
-            </div>
-            </>
-            :null}
-            { this.state.article.data ? 
-            <> 
-                    
-        
-                <Row  className="main min-height text-align-center">
-                        <Col lg="3" sm="0" />
-                        <Col lg="6" sm="0">
-                            <>
-                                <Card className="max-width">
-                                    <Card.Img variant="top" src={"http://localhost:1337"+this.state.article.data.attributes.Image.data.attributes.url} alt="Image didn't loaded properly"/>
-                                    <Card.Body>
-                                        <Card.Title>{this.state.article.data.attributes.name}</Card.Title>
-                                        <Card.Text>
-                                    {this.state.article.data.attributes.description}
-                                        </Card.Text>
-                                    </Card.Body>
-                                    <ListGroup className="list-group-flush">
-                                        <ListGroupItem>{(this.state.article.data.attributes.price/100).toFixed(2)+"€"}</ListGroupItem>
-                                        {this.props.viewFromCart ?
-                                        <>
-                                            <div className="firstLine">
-                                                <Button variant="success" disabled> 
-                                                {this.props.getNumberOfArticle(this.state.article.data)} in the cart
-                                                ({(this.state.article.data.attributes.price * this.props.getNumberOfArticle(this.state.article.data) /100).toFixed(2)}€)
-                                                </Button>
-                                            </div>
-                                            <div className="secondLine">
-                                                <Button variant="primary" onClick={() => this.props.addArticleToCart(this.state.article.data)}>Add one</Button>
-                                                <Button variant="primary" disabled={this.props.getNumberOfArticle(this.state.article.data) === 1} onClick={() => this.props.remArticleFromCart(this.state.data)}>Remove one</Button>
-                                            </div>
-                                            <div className="thirdLine">
-                                                <Button variant="danger" onClick={() => this.remAllFromCart()}>Remove all</Button>
-                                            </div>
-                                        </>
-                                        : <>
-                                            {this.state.article.inCart ?
-                                                    <>   {/* Buttons after "add to cart" pressed */}
-                                                    <div className="firstLine">
-                                                        <Link to="/cart"><Button variant="success">Added to Cart - Show Cart</Button></Link>
-                                                    </div>
-                                                    <div className="thirdLine">
-                                                        <Button variant="danger" onClick={() => this.remFromCart()}>Cancel</Button>
-                                                    </div>
-                                                </>
-                                                : <> {/* Default buttons */}
-                                                    <div className="firstLine">
-                                                        <Button variant="primary" onClick={() => this.addToCart()}>Add to Cart</Button>
-                                                    </div>
-                                                    <div className="thirdLine">
-                                                        <Link to={"/"}><Button variant="info">Back to main page</Button></Link>
-                                                    </div>
-                                                    </>
-                                            }
-                                        </>
-                                        }
-                                    </ListGroup>
-                                </Card>
-                                </>
-                            </Col>
-                    <Col lg="3" sm="0" />
-                </Row>
-                    </>
-                    :null
-            }
-            <div className="bottom">
-                <Footer/>
-            </div>
-        </>
-
-
-
-
-
-        )
-    }
+      <>
+      <MyNavbar />
+        <Row  className="main articlePage">
+          <Col lg="3" sm="0" />
+          <Col lg="6" sm="0">
+            <Card>
+              <div className="cardImg">
+                {console.log(this.state.article.data)}
+                <Card.Img variant="top" src={"http://localhost:1337"+this.state.article.data.attributes.Image.data.attributes.url} alt="Image didn't loaded properly"/>
+              </div>
+              <Card.Body>
+                <Card.Title>{this.state.article.data.attributes.name}</Card.Title>
+                <Card.Text>
+                  <div className="description">{this.state.article.data.attributes.description}</div>
+                  <div className="price">{(this.state.article.data.attributes.price/100).toFixed(2)+"€"}</div>
+                </Card.Text>
+                {this.CardButtons()}
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+        <Footer/>
+    </>
+    )
+  }
 } export default ArticlePage;
-
-
