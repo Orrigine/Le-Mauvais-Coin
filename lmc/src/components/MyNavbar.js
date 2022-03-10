@@ -9,7 +9,7 @@ class SearchNavbar extends Component {
     render() {        
         return (
             <>
-            <Navbar bg="dark" expand="lg">
+            <Navbar className="fixed-top" bg="dark" expand="lg">
                 <Container fluid>  {/* Logo (left side) */}
                     <Navbar.Brand className=""><Link className="text-light" to="/">Le Mauvais Coin</Link></Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />

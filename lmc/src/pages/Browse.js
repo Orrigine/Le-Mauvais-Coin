@@ -58,7 +58,7 @@ class Browse extends Component {
 
         return (
             <> {/* Special navbar with search field */}
-                <Navbar bg="dark" expand="lg">
+                <Navbar className="fixed-top" bg="dark" expand="lg">
                 <Container fluid>
                     <Navbar.Brand className=""><Link className="text-light" to="/">Le Mauvais Coin</Link></Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
@@ -88,7 +88,7 @@ class Browse extends Component {
                 </Container>
                 </Navbar>
 
-                <Row>  {/* Articles display */}
+                <Row className="main">  {/* Articles display */}
                     <Col sm="2" /><Col sm="8">
                         <Row>
                             {this.state.loading ?

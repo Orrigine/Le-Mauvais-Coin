@@ -28,3 +28,12 @@ div.cardPageImg {
 div.description-text {
     color: #000000 !important;
 }
+.min-height { 
+    min-height: 71vh;
+}
+
+
+div.img-container {
+    max-width: 600px;
+    max-height: 400px;
+}

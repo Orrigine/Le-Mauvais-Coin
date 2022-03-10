@@ -30,3 +30,10 @@ a:hover {
 nav {
     margin-bottom: 1rem;
 }
+.main {
+    margin-top: 70px; /* Add a top margin to avoid content overlay */
+  }
+
+.fixed-top {
+    z-index:2;
+}
