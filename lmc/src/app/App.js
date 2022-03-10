@@ -11,6 +11,7 @@ import React, {
 import Browse from '../pages/Browse';
 import Cart from '../pages/Cart';
 import ArticlePage from '../pages/ArticlePage';
+import Payement from '../pages/Payement';
 
 class App extends Component {
     constructor(props) {
@@ -67,6 +68,7 @@ class App extends Component {
         <Route exact path='/' element={<Browse cart={this.state.cart} addArticleToCart={this.addArticleToCart} remArticleFromCart={this.remArticleFromCart} getNumberOfArticle={this.getNumberOfArticle} />} />
         <Route exact path='/cart' element={<Cart cart={this.state.cart} addArticleToCart={this.addArticleToCart} remArticleFromCart={this.remArticleFromCart} getNumberOfArticle={this.getNumberOfArticle} />} />
         <Route exact path='/article/:id' element={<ArticlePage cart={this.state.cart} addArticleToCart={this.addArticleToCart} remArticleFromCart={this.remArticleFromCart} getNumberOfArticle={this.getNumberOfArticle} />} />
+        <Route exact path='/payement' element={<Payement cart={this.state.cart} addArticleToCart={this.addArticleToCart} remArticleFromCart={this.remArticleFromCart} getNumberOfArticle={this.getNumberOfArticle} />} />
       </Routes>
     </Router>
   );

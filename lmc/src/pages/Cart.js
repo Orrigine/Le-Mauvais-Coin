@@ -7,10 +7,17 @@ import { Link } from 'react-router-dom';
 import "../css/Cart.css"
 
 class Cart extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            
+            
+        };
+    }
 
   emptyCart() {
     this.props.cart.forEach(tuple => {
-        this.props.remArticleFromCart(tuple)
+        this.props.remArticleFromCart(tuple.article)
       }
     );
   }
@@ -56,12 +63,12 @@ class Cart extends Component {
         <Row> {/* Payment section */}
           <Col sm="0" md="2" lg="4" />
           <Col sm="12" md="8" lg="4">
-            <Row className="payment">
-              <Col sm="12" className='priceAndEmpty'>
+            <Row classNameName="payment">
+              <Col sm="12" classNameName='priceAndEmpty'>
                 <Button variant="success" disabled={true}>You have {totalCount} article(s) in your cart. Total price: {totalPrice.toFixed(2)}€</Button>
                 <Button variant="danger" onClick={() => this.emptyCart()}>Empty cart</Button>
               </Col>
-              <Col sm="12"><Button variant="primary">Proceed to payment</Button></Col>
+              <Col sm="12"><Link to="/payement"><Button variant="primary">Proceed to payement</Button></Link></Col>
             </Row>
           </Col>
         </Row>
