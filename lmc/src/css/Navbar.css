@@ -28,10 +28,12 @@ a:hover {
 }
 
 nav {
+    height: 5vh;
     margin-bottom: 1rem;
 }
+
 .main {
-    margin-top: 70px; /* Add a top margin to avoid content overlay */
+    margin-top: 6vh; /* Add a top margin to avoid content overlay */
   }
 
 .fixed-top {

@@ -99,7 +99,7 @@ class Article extends Component {
             <Card className="singleCard">
               <Link to={"/article/"+this.props.data.id}>
                 <div className="cardImg">
-                  <Card.Img variant="top" src={this.props.data.attributes.Image && "http://localhost:1337"+this.props.data.attributes.Image.data.attributes.url} />
+                  <Card.Img variant="top" src={this.props.data.attributes.Image && "http://localhost:1337"+this.props.data.attributes.Image.data.attributes.url}  alt="Image didn't loaded properly"/>
                 </div>
               </Link>
                 <Card.Body>

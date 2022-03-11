@@ -63,8 +63,8 @@ class Cart extends Component {
         <Row> {/* Payment section */}
           <Col sm="0" md="2" lg="4" />
           <Col sm="12" md="8" lg="4">
-            <Row classNameName="payment">
-              <Col sm="12" classNameName='priceAndEmpty'>
+            <Row className="payment">
+              <Col sm="12" className='priceAndEmpty'>
                 <Button variant="success" disabled={true}>You have {totalCount} article(s) in your cart. Total price: {totalPrice.toFixed(2)}€</Button>
                 <Button variant="danger" onClick={() => this.emptyCart()}>Empty cart</Button>
               </Col>

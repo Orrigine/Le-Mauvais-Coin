@@ -20,8 +20,10 @@ class App extends Component {
             articles: [],
             loading: true,
             cart:[],
-            search: '',
-            
+            search: '',   
+        }
+        if (localStorage.getItem("cart")) {
+            this.state = {cart: JSON.parse(localStorage.getItem('cart'))}
         }
     }
 
@@ -37,6 +39,7 @@ class App extends Component {
         }};
         if (!updated) kart.push({article: article, count: 1});
         this.setState({cart: kart});
+        localStorage.setItem('cart', JSON.stringify(kart))
     }
 
     remArticleFromCart = (article) => {
@@ -48,6 +51,7 @@ class App extends Component {
                 else tuple.count--;
         }};
         this.setState({cart: kart});
+        localStorage.setItem('cart', JSON.stringify(kart))
     }
 
     getNumberOfArticle = (article) => {

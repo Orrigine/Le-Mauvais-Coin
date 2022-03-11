@@ -22,6 +22,10 @@ input {
     background-color: transparent !important;
 }
 
+.main {
+    min-height: 70vh; /* see the footer at the bottom even if page is empty */
+}
+
 .back-in-black {
     margin-top: 1rem;
 }
