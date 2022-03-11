@@ -1,0 +1,13 @@
+body {
+    background-color: black;
+}
+.payementPage {
+    max-height: 50vmax;
+    text-align: center;
+  }
+
+.min-height {
+    min-height: 71vh;
+}
+
+.white { background-color:white}

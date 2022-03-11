@@ -1,3 +1,9 @@
+body { 
+    background-color: black;
+}
+
+.grey { background-color: black; }
+
 .payment {
   margin-top: 1em;
 }

@@ -5,7 +5,7 @@ import { Row, Col, Navbar, Container, FormControl, Nav } from "react-bootstrap";
 import Footer from '../components/Footer'
 import Article from "../components/ArticleCard";
 import { Link } from 'react-router-dom';
-
+import '../css/Browse.css'
 class Browse extends Component {    
 
     constructor(props) {

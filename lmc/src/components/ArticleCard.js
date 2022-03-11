@@ -96,15 +96,15 @@ class Article extends Component {
     return (
           <>  {/* Article Card */}
           <Col sm="12" md="6" lg="3" >
-            <Card className="singleCard">
+            <Card className="grey singleCard">
               <Link to={"/article/"+this.props.data.id}>
                 <div className="cardImg">
                   <Card.Img variant="top" src={this.props.data.attributes.Image && "http://localhost:1337"+this.props.data.attributes.Image.data.attributes.url}  alt="Image didn't loaded properly"/>
                 </div>
               </Link>
                 <Card.Body>
-                    <Card.Title>{this.props.data.attributes.name}</Card.Title>
-                  <Card.Text>
+                    <Card.Title className="text-light">{this.props.data.attributes.name}</Card.Title>
+                  <Card.Text className="text-light">
                       {(this.props.data.attributes.price/100).toFixed(2)+"€"}
                   </Card.Text>
                   {this.CardButtons()}
