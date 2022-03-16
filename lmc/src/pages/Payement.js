@@ -22,6 +22,15 @@ class Payement extends Component {
             
         }
     }
+    async componentDidMount() {
+        const response = await fetch('http://localhost:1337/api/articles/?populate=*',{
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
+    }
 
     handleChange = (e) => {
         e.preventDefault();
@@ -37,18 +46,29 @@ class Payement extends Component {
         firstname:this.state.firstname,
         adress:this.state.adress,
         date:this.state.date,
-    }))
-    // this.props.cart = [];
-        // console.log(localStorage);
+        }))
     }
-    
-    // remAllFromCart() {
-    //     this.setState({inCart:false});
-    //     const initialNumber = this.props.getNumberOfArticle(this.state.article.data)
-    //     for (let i = 0; i < initialNumber; i++) {
-    //       this.props.remArticleFromCart(this.state.article.data);
-    //     }
-    //   }
+        
+    sendToDB = async (req, res) => {
+        const response = await fetch("http://localhost:1337/api/orders", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+            },
+            body:JSON.stringify({
+                data:{
+                    email:this.state.email,
+                    last_name:this.state.lastname,
+                    first_name:this.state.firstname,
+                    adress:this.state.adress,
+                    date:this.state.date,
+                    articles:this.props.cart,
+                }
+            }),
+        });
+    }
+
 
     render() {
         return (
@@ -163,7 +183,7 @@ class Payement extends Component {
                                 </Form.Floating>
                             </Col>
                         </Row>
-                        <Link to="/"><Button onClick={this.saveToLocalStorage()} variant="info">Valider la commande</Button></Link>
+                        <Link to="/"><Button onClick={this.sendToDB()} variant="info">Valider la commande</Button></Link>
                 </Col>
                     
             </Row>

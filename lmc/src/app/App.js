@@ -54,6 +54,8 @@ class App extends Component {
         localStorage.setItem('cart', JSON.stringify(kart))
     }
 
+    resetCart = () => this.setState({cart:[]})
+
     getNumberOfArticle = (article) => {
         for (let i = 0; i < this.state.cart.length; i++) {
             let tuple = this.state.cart[i];

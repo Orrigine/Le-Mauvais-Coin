@@ -4,10 +4,11 @@
   "info": {
     "singularName": "order",
     "pluralName": "orders",
-    "displayName": "Orders"
+    "displayName": "Orders",
+    "description": ""
   },
   "options": {
-    "draftAndPublish": false
+    "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {

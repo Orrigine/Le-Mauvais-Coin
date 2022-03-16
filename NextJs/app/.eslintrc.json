@@ -1,0 +1,6 @@
+{
+    "extends": [
+        "next/label",
+        "next/core-web-vitals"
+    ]
+}
