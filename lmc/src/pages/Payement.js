@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import MyNavbar from '../components/MyNavbar';
 import Footer from '../components/Footer'
-import { Row, Col, Alert, Button, InputGroup, FormControl, Form } from "react-bootstrap";
-
+import { Row, Col, Alert, Button } from "react-bootstrap";
+import Article from "../components/ArticleCard";
 import { Link } from 'react-router-dom';
 import "../css/Payement.css"
+import { Form } from 'react-bootstrap';
 
 
 class Payement extends Component {
@@ -30,13 +31,6 @@ class Payement extends Component {
         'Accept': 'application/json'
       }
     })
-    }
-
-    handleChange = (e) => {
-        e.preventDefault();
-        let name = e.target.name
-        let value = e.target.value
-        this.setState({ [name]: value})
     }
 
     saveToLocalStorage = () => {
@@ -190,6 +184,8 @@ class Payement extends Component {
             <Footer/>
 
                         
+            
+            
             
             
             
